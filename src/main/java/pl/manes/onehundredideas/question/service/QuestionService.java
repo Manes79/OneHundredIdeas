@@ -18,7 +18,7 @@ public class QuestionService {
     }
 
     public Question getQuestion(UUID id) {
-        return new Question("Question " + id );
+        return new Question("Question " + id);
     }
 
     public Question createQuestion(Question question) {
@@ -31,6 +31,5 @@ public class QuestionService {
     }
 
     public void deleteQuestion(UUID id) {
-
     }
 }
