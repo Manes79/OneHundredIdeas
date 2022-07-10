@@ -7,12 +7,12 @@ public class Question {
     private UUID id;
     private String name;
 
-    public Question(String s) {
-    }
-
-    public Question(UUID id, String name) {
+    public Question(String name) {
         this.id = UUID.randomUUID();
         this.name = name;
+    }
+
+    public Question() {
     }
 
     public UUID getId() {

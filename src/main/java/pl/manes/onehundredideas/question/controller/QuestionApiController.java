@@ -11,12 +11,12 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("api/v1/questions")
-public class QuestionController {
+public class QuestionApiController {
 
     private final QuestionService questionService;
 
     @Autowired
-    public QuestionController(QuestionService questionService) {
+    public QuestionApiController(QuestionService questionService) {
         this.questionService = questionService;
     }
 
