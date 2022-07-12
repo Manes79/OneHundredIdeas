@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <title>List of questions</title>
 </head>
-
 <body>
 <ul>
     <li th:each="question : ${questions}" th:text="${question.name}"></li>
 </ul>
 </body>
-
 </html>

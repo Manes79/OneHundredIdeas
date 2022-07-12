@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <title>Form to add new question</title>
 </head>
-
 <body>
 <h1>
     New Question
     <form action="/questions" method="post" th:object="${question}">
-        Name: <input th:field="*{name}" type="text"/> <br/>
+        Name: <label>
+        <input th:field="*{name}" type="text"/>
+    </label> <br/>
         <input type="submit" value="Add"/>
     </form>
 </h1>
 </body>
-
 </html>
