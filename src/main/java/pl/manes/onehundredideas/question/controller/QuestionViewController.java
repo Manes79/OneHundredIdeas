@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.manes.onehundredideas.question.domain.model.Question;
+import pl.manes.onehundredideas.question.service.AnswerService;
 import pl.manes.onehundredideas.question.service.QuestionService;
 
 import java.util.UUID;
@@ -16,21 +17,23 @@ import java.util.UUID;
 public class QuestionViewController {
 
     private final QuestionService questionService;
+    private final AnswerService answerService;
 
-    public QuestionViewController(QuestionService questionService) {
+    public QuestionViewController(QuestionService questionService, AnswerService answerService) {
         this.questionService = questionService;
+        this.answerService = answerService;
     }
 
     @GetMapping
     public String indexView(Model model) {
         model.addAttribute("questions", questionService.getQuestions());
-        return "template";
-//        return "question/index";
+        return "question/index";
     }
 
     @GetMapping("{id}")
     public String singleView(Model model, @PathVariable UUID id) {
         model.addAttribute("question", questionService.getQuestion(id));
+        model.addAttribute("answers", answerService.getAnswers(id));
         return "question/single";
     }
 

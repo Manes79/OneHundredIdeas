@@ -8,12 +8,12 @@ public class Answer {
 
     private String name;
 
-    public Answer(String s) {
-    }
-
-    public Answer(UUID id, String name) {
+    public Answer(String name) {
         this.id = UUID.randomUUID();
         this.name = name;
+    }
+
+    public Answer() {
     }
 
     public UUID getId() {
