@@ -1,4 +1,4 @@
-package pl.manes.onehundredideas.categories.domain.model;
+package pl.manes.onehundredideas.category.model;
 
 import java.util.UUID;
 
@@ -8,10 +8,10 @@ public class Category {
 
     private String name;
 
-    public Category(String s) {
+    public Category() {
     }
 
-    public Category(UUID id, String name) {
+    public Category(String name) {
         this.id = UUID.randomUUID();
         this.name = name;
     }

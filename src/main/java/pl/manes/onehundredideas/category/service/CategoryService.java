@@ -1,7 +1,7 @@
-package pl.manes.onehundredideas.categories.service;
+package pl.manes.onehundredideas.category.service;
 
 import org.springframework.stereotype.Service;
-import pl.manes.onehundredideas.categories.domain.model.Category;
+import pl.manes.onehundredideas.category.model.Category;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,7 +13,8 @@ public class CategoryService {
     public List<Category> getCategories() {
         return Arrays.asList(
                 new Category("Category 1"),
-                new Category("Category 2")
+                new Category("Category 2"),
+                new Category("Category 3")
         );
     }
 

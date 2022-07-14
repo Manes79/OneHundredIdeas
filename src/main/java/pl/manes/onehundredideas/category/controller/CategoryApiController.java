@@ -1,20 +1,20 @@
-package pl.manes.onehundredideas.categories.controller;
+package pl.manes.onehundredideas.category.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import pl.manes.onehundredideas.categories.domain.model.Category;
-import pl.manes.onehundredideas.categories.service.CategoryService;
+import pl.manes.onehundredideas.category.model.Category;
+import pl.manes.onehundredideas.category.service.CategoryService;
 
 import java.util.List;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("api/v1/categories")
-public class CategoryController {
+public class CategoryApiController {
 
     private final CategoryService categoryService;
 
-    public CategoryController(CategoryService categoryService) {
+    public CategoryApiController(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
 
