@@ -2,9 +2,7 @@ package pl.manes.onehundredideas.admin.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.manes.onehundredideas.category.model.Category;
 import pl.manes.onehundredideas.category.service.CategoryService;
 
@@ -28,7 +26,13 @@ public class CategoryAdminViewController {
 
     @GetMapping("{id}")
     public String editView(Model model, @PathVariable UUID id) {
-        model.addAttribute("category", categoryService.updateCategory(id, new Category()));
+        model.addAttribute("category", categoryService.getCategory(id));
         return "/admin/category/edit";
+    }
+
+    @PostMapping("{id}")
+    public String edit(@ModelAttribute("category") Category category, @PathVariable UUID id) {
+        categoryService.updateCategory(id, category);
+        return "redirect:/admin/categories";
     }
 }

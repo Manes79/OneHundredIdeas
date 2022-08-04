@@ -19,7 +19,7 @@ public class QuestionViewController {
 
     private final QuestionService questionService;
     private final AnswerService answerService;
-    private  final CategoryService categoryService;
+    private final CategoryService categoryService;
 
     public QuestionViewController(QuestionService questionService, AnswerService answerService, CategoryService categoryService) {
         this.questionService = questionService;

@@ -7,9 +7,9 @@
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
-    <th:block th:replace="admin/template :: navbar" />
+    <th:block th:replace="admin/template :: navbar"/>
 
-    <th:block th:replace="admin/template :: sidebar" />
+    <th:block th:replace="admin/template :: sidebar"/>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -25,10 +25,13 @@
 
                                 <div class="card-tools">
                                     <div class="input-group input-group-sm" style="width: 150px;">
-                                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                        <label>
+                                            <input class="form-control float-right" name="table_search" placeholder="Search"
+                                                   type="text">
+                                        </label>
 
                                         <div class="input-group-append">
-                                            <button type="submit" class="btn btn-default">
+                                            <button class="btn btn-default" type="submit">
                                                 <i class="fas fa-search"></i>
                                             </button>
                                         </div>
@@ -39,41 +42,23 @@
 
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Quick Example</h3>
+                                    <h3 class="card-title">Category</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form>
+                                <form method="post" th:object="${category}">
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Email address</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1">Password</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputFile">File input</label>
-                                            <div class="input-group">
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="exampleInputFile">
-                                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                                </div>
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text">Upload</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                            <label for="categoryName">Name</label>
+                                            <input class="form-control" id="categoryName" placeholder="Category name" th:field="*{name}"
+                                                   type="text">
+                                            <input th:field="*{id}" type="hidden"/>
                                         </div>
                                     </div>
                                     <!-- /.card-body -->
 
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button class="btn btn-primary" type="submit">Save</button>
                                     </div>
                                 </form>
                             </div>
@@ -98,12 +83,13 @@
                                 <h5 class="card-title">Card title</h5>
 
                                 <p class="card-text">
-                                    Some quick example text to build on the card title and make up the bulk of the card's
+                                    Some quick example text to build on the card title and make up the bulk of the
+                                    card's
                                     content.
                                 </p>
 
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
+                                <a class="card-link" href="#">Card link</a>
+                                <a class="card-link" href="#">Another link</a>
                             </div>
                         </div>
 
@@ -112,11 +98,12 @@
                                 <h5 class="card-title">Card title</h5>
 
                                 <p class="card-text">
-                                    Some quick example text to build on the card title and make up the bulk of the card's
+                                    Some quick example text to build on the card title and make up the bulk of the
+                                    card's
                                     content.
                                 </p>
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
+                                <a class="card-link" href="#">Card link</a>
+                                <a class="card-link" href="#">Another link</a>
                             </div>
                         </div><!-- /.card -->
                     </div>
@@ -129,8 +116,9 @@
                             <div class="card-body">
                                 <h6 class="card-title">Special title treatment</h6>
 
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional
+                                    content.</p>
+                                <a class="btn btn-primary" href="#">Go somewhere</a>
                             </div>
                         </div>
 
@@ -141,8 +129,9 @@
                             <div class="card-body">
                                 <h6 class="card-title">Special title treatment</h6>
 
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional
+                                    content.</p>
+                                <a class="btn btn-primary" href="#">Go somewhere</a>
                             </div>
                         </div>
                     </div>
@@ -155,9 +144,9 @@
     </div>
     <!-- /.content-wrapper -->
 
-    <th:block th:replace="admin/template :: rightbar" />
+    <th:block th:replace="admin/template :: rightbar"/>
 
-    <th:block th:replace="admin/template :: footer" />
+    <th:block th:replace="admin/template :: footer"/>
 
 </div>
 <!-- ./wrapper -->
