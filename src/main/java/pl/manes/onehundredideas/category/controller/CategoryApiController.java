@@ -2,7 +2,7 @@ package pl.manes.onehundredideas.category.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import pl.manes.onehundredideas.category.model.Category;
+import pl.manes.onehundredideas.category.domain.model.Category;
 import pl.manes.onehundredideas.category.service.CategoryService;
 
 import java.util.List;

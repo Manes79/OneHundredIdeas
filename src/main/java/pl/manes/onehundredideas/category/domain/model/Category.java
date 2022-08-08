@@ -1,4 +1,4 @@
-package pl.manes.onehundredideas.category.model;
+package pl.manes.onehundredideas.category.domain.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,6 +14,7 @@ public class Category {
     private String name;
 
     public Category() {
+        this.id = UUID.randomUUID();
     }
 
     public Category(String name) {

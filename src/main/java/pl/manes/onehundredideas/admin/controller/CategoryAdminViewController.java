@@ -3,7 +3,7 @@ package pl.manes.onehundredideas.admin.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import pl.manes.onehundredideas.category.model.Category;
+import pl.manes.onehundredideas.category.domain.model.Category;
 import pl.manes.onehundredideas.category.service.CategoryService;
 
 import java.util.UUID;
@@ -35,4 +35,11 @@ public class CategoryAdminViewController {
         categoryService.updateCategory(id, category);
         return "redirect:/admin/categories";
     }
+
+    @GetMapping("{id}/delete")
+    public String deleteView(@PathVariable UUID id) {
+        categoryService.deleteCategory(id);
+        return "redirect:/admin/categories";
+    }
+
 }
