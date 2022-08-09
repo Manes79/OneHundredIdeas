@@ -1,4 +1,4 @@
-package pl.manes.onehundredideas.admin.controller;
+package pl.manes.onehundredideas.category.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

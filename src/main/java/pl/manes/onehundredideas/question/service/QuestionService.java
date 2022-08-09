@@ -46,4 +46,9 @@ public class QuestionService {
     public void deleteQuestion(UUID id) {
         questionRepository.deleteById(id);
     }
+
+    @Transactional(readOnly = true)
+    public List<Question> findAllByCategoryId(UUID id) {
+        return questionRepository.findAllByCategoryId(id);
+    }
 }
