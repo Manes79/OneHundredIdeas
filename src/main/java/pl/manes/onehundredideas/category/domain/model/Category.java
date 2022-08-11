@@ -3,6 +3,7 @@ package pl.manes.onehundredideas.category.domain.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import java.util.UUID;
 @Entity
 @Table(name = "categories")
@@ -11,6 +12,7 @@ public class Category {
     @Id
     private UUID id;
 
+    @NotBlank(message = "{onehundredideas.validation.name.NotBlank.message}")
     private String name;
 
     public Category() {
