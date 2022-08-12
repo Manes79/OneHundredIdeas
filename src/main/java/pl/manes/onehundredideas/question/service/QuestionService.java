@@ -5,7 +5,6 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.manes.onehundredideas.question.domain.model.Question;
 import pl.manes.onehundredideas.question.domain.repository.QuestionRepository;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 

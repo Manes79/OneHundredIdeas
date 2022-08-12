@@ -18,44 +18,47 @@
             <div class="container-fluid">
 
                 <form method="post" th:object="${category}">
-                <div class="error" th:if="${#fields.hasAnyErrors()}">
-                    <ul>
-                        <li th:each="err : ${#fields.allErrors()}" th:text="${err}"/>
-                    </ul>
-                </div>
+                    <div class="error" th:if="${#fields.hasAnyErrors()}">
+                        <ul>
+                            <li th:each="error : ${#fields.allErrors()}" th:text="${error}"/>
+                        </ul>
+                    </div>
 
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Responsive Hover Table</h3>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Responsive Hover Table</h3>
 
-                                <div class="card-tools">
-                                    <div class="input-group input-group-sm" style="width: 150px;">
-                                        <label>
-                                            <input class="form-control float-right" name="table_search" placeholder="Search"
-                                                   type="text">
-                                        </label>
+                                    <div class="card-tools">
+                                        <div class="input-group input-group-sm" style="width: 130px;">
+                                            <label>
+                                                <input class="form-control float-right" name="table_search"
+                                                       placeholder="Search"
+                                                       type="text">
+                                            </label>
 
-                                        <div class="input-group-append">
-                                            <button class="btn btn-default" type="submit">
-                                                <i class="fas fa-search"></i>
-                                            </button>
+                                            <div class="input-group-append">
+                                                <button class="btn btn-default" type="submit">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card card-primary">
-                                <div class="card-header">
-                                    <h3 class="card-title">Category</h3>
-                                </div>
                                 <!-- /.card-header -->
+                                <div class="card card-primary">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Category</h3>
+                                    </div>
+                                    <!-- /.card-header -->
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="categoryName">Name</label>
-                                            <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span>
-                                            <input class="form-control" id="categoryName" placeholder="Category name" th:field="*{name}"
+                                            <span class="error" th:errors="*{name}"
+                                                  th:if="${#fields.hasErrors('name')}">Name Error</span>
+                                            <input class="form-control" id="categoryName" placeholder="Category name"
+                                                   th:field="*{name}"
                                                    type="text">
                                             <input th:field="*{id}" type="hidden"/>
                                         </div>
@@ -66,13 +69,13 @@
                                         <button class="btn btn-primary" type="submit">Save</button>
                                     </div>
 
-                            </div>
+                                </div>
 
-                            <!-- /.card-body -->
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
                         </div>
-                        <!-- /.card -->
                     </div>
-                </div>
                 </form>
             </div><!-- /.container-fluid -->
         </div>
@@ -156,13 +159,5 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="js/adminlte.min.js"></script>
 </body>
 </html>

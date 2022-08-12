@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pl.manes.onehundredideas.category.domain.model.Category;
 import pl.manes.onehundredideas.category.service.CategoryService;
+import pl.manes.onehundredideas.common.dto.Message;
 
 import javax.validation.Valid;
 import java.util.UUID;
@@ -39,30 +40,30 @@ public class CategoryAdminViewController {
             @Valid @ModelAttribute("category") Category category,
             BindingResult bindingResult,
             RedirectAttributes redirectAttributes,
-            Model model){
+            Model model) {
 
         if (bindingResult.hasErrors()) {
-            model.addAttribute("category",category);
-            model.addAttribute("message","Writing error");
+            model.addAttribute("category", category);
+            model.addAttribute("message", Message.error("Writing error"));
             return "/admin/category/edit";
         }
 
         try {
             categoryService.updateCategory(id, category);
-            redirectAttributes.addFlashAttribute("message","Catagory saved");
+            redirectAttributes.addFlashAttribute("message", Message.info("Category saved"));
 
         } catch (Exception exception) {
             model.addAttribute("category", category);
-            model.addAttribute("message","Unknown recording error");
+            model.addAttribute("message", Message.error("Unknown recording error"));
         }
 
-            return "/admin/category/edit";
-        }
-
+        return "/admin/category/edit";
+    }
 
     @GetMapping("{id}/delete")
-    public String deleteView(@PathVariable UUID id) {
+    public String deleteView(@PathVariable UUID id, RedirectAttributes redirectAttributes) {
         categoryService.deleteCategory(id);
+        redirectAttributes.addFlashAttribute("message", Message.info("Category delete"));
         return "redirect:/admin/categories";
     }
 
