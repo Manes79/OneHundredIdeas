@@ -45,7 +45,7 @@ public class CategoryAdminViewController {
         if (bindingResult.hasErrors()) {
             model.addAttribute("category", category);
             model.addAttribute("message", Message.error("Writing error"));
-            return "/admin/category/edit";
+            return "admin/category/edit";
         }
 
         try {
@@ -55,9 +55,10 @@ public class CategoryAdminViewController {
         } catch (Exception exception) {
             model.addAttribute("category", category);
             model.addAttribute("message", Message.error("Unknown recording error"));
+            return "admin/category/edit";
         }
 
-        return "/admin/category/edit";
+        return "redirect:/admin/categories";
     }
 
     @GetMapping("{id}/delete")

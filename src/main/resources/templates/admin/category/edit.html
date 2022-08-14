@@ -18,6 +18,7 @@
             <div class="container-fluid">
 
                 <form method="post" th:object="${category}">
+
                     <div class="error" th:if="${#fields.hasAnyErrors()}">
                         <ul>
                             <li th:each="error : ${#fields.allErrors()}" th:text="${error}"/>
@@ -52,15 +53,13 @@
                                         <h3 class="card-title">Category</h3>
                                     </div>
                                     <!-- /.card-header -->
+
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="categoryName">Name</label>
-                                            <span class="error" th:errors="*{name}"
-                                                  th:if="${#fields.hasErrors('name')}">Name Error</span>
-                                            <input class="form-control" id="categoryName" placeholder="Category name"
-                                                   th:field="*{name}"
-                                                   type="text">
-                                            <input th:field="*{id}" type="hidden"/>
+                                            <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span>
+                                            <input th:field="*{name}" type="text" class="form-control" id="categoryName" placeholder="Category name">
+                                            <input th:field="*{id}" type="hidden" />
                                         </div>
                                     </div>
                                     <!-- /.card-body -->
@@ -68,7 +67,6 @@
                                     <div class="card-footer">
                                         <button class="btn btn-primary" type="submit">Save</button>
                                     </div>
-
                                 </div>
 
                                 <!-- /.card-body -->
@@ -76,78 +74,11 @@
                             <!-- /.card -->
                         </div>
                     </div>
+
                 </form>
             </div><!-- /.container-fluid -->
         </div>
-        <!-- /.content-header -->
 
-        <!-- Main content -->
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make up the bulk of the
-                                    card's
-                                    content.
-                                </p>
-
-                                <a class="card-link" href="#">Card link</a>
-                                <a class="card-link" href="#">Another link</a>
-                            </div>
-                        </div>
-
-                        <div class="card card-primary card-outline">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-
-                                <p class="card-text">
-                                    Some quick example text to build on the card title and make up the bulk of the
-                                    card's
-                                    content.
-                                </p>
-                                <a class="card-link" href="#">Card link</a>
-                                <a class="card-link" href="#">Another link</a>
-                            </div>
-                        </div><!-- /.card -->
-                    </div>
-                    <!-- /.col-md-6 -->
-                    <div class="col-lg-6">
-                        <div class="card">
-                            <div class="card-header">
-                                <h5 class="m-0">Featured</h5>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="card-title">Special title treatment</h6>
-
-                                <p class="card-text">With supporting text below as a natural lead-in to additional
-                                    content.</p>
-                                <a class="btn btn-primary" href="#">Go somewhere</a>
-                            </div>
-                        </div>
-
-                        <div class="card card-primary card-outline">
-                            <div class="card-header">
-                                <h5 class="m-0">Featured</h5>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="card-title">Special title treatment</h6>
-
-                                <p class="card-text">With supporting text below as a natural lead-in to additional
-                                    content.</p>
-                                <a class="btn btn-primary" href="#">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.col-md-6 -->
-                </div>
-                <!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
