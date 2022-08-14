@@ -1,5 +1,7 @@
 package pl.manes.onehundredideas.category.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.manes.onehundredideas.category.domain.model.Category;
@@ -18,8 +20,8 @@ public class CategoryService {
     }
 
     @Transactional(readOnly = true)
-    public List<Category> getCategories() {
-        return categoryRepository.findAll();
+    public Page<Category> getCategories(Pageable pageable) {
+        return categoryRepository.findAll(pageable);
     }
 
     @Transactional(readOnly = true)

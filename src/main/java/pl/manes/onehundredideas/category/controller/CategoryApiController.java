@@ -1,5 +1,7 @@
 package pl.manes.onehundredideas.category.controller;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import pl.manes.onehundredideas.category.domain.model.Category;
@@ -19,8 +21,8 @@ public class CategoryApiController {
     }
 
     @GetMapping()
-    List<Category> getCategories() {
-        return categoryService.getCategories();
+    Page<Category> getCategories(Pageable pageable) {
+        return categoryService.getCategories(pageable);
     }
 
     @GetMapping("{id}")

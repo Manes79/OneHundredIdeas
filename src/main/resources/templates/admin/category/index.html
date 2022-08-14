@@ -50,7 +50,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr th:each="category : ${categories}">
+                                    <tr th:each="category : ${categoriesPage.content}">
                                         <td th:text="${category.name}"></td>
                                         <td>
                                             <a class="btn btn-primary btn-sm"
@@ -65,11 +65,22 @@
                                                th:href="@{'/admin/categories/'+${category.id}+'/delete'}">
                                                 <i class="fas fa-trash"></i>Delete
                                             </a>
-
                                         </td>
                                     </tr>
                                     </tbody>
                                 </table>
+
+                                <div class="card-footer clearfix">
+                                    <ul class="pagination pagination-sm m-0 float-right"
+                                        th:if="${categoriesPage.totalPages > 0}">
+                                        <li th:each="pageNumber : ${pageNumbers}" class="page-item">
+                                            <a class="page-link"
+                                               th:href="@{'/admin/categories'(size=${categoriesPage.size}, page=${pageNumber}-1)}"
+                                               th:text="${pageNumber}">
+                                            </a>
+                                        </li>
+                                    </ul>
+
                             </div>
                             <!-- /.card-body -->
                         </div>
