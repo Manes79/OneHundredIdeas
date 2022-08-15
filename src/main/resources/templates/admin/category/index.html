@@ -58,13 +58,16 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                     <tr>
-                                        <th>Name</th>
+                                        <th>#</th>
+                                        <th><a  th:class="'sort-' +${reverseSort}"
+                                                th:href="@{'/admin/categories'(s=${search}, field = 'name', direction = ${reverseSort})}">Name</a></th>
                                         <th></th>
 
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr th:each="category : ${categoriesPage.content}">
+                                    <tr th:each="category, iterator : ${categoriesPage.content}">
+                                        <td th:text="${iterator.index} + 1"></td>
                                         <td th:text="${category.name}"></td>
                                         <td>
                                             <a class="btn btn-primary btn-sm"
@@ -106,75 +109,6 @@
         </div>
         <!-- /.content-header -->
 
-        <!-- Main content -->
-<!--        <div class="content">-->
-<!--            <div class="container-fluid">-->
-<!--                <div class="row">-->
-<!--                    <div class="col-lg-6">-->
-<!--                        <div class="card">-->
-<!--                            <div class="card-body">-->
-<!--                                <h5 class="card-title">Card title</h5>-->
-
-<!--                                <p class="card-text">-->
-<!--                                    Some quick example text to build on the card title and make up the bulk of the-->
-<!--                                    card's-->
-<!--                                    content.-->
-<!--                                </p>-->
-
-<!--                                <a class="card-link" href="#">Card link</a>-->
-<!--                                <a class="card-link" href="#">Another link</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-
-<!--                        <div class="card card-primary card-outline">-->
-<!--                            <div class="card-body">-->
-<!--                                <h5 class="card-title">Card title</h5>-->
-
-<!--                                <p class="card-text">-->
-<!--                                    Some quick example text to build on the card title and make up the bulk of the-->
-<!--                                    card's-->
-<!--                                    content.-->
-<!--                                </p>-->
-<!--                                <a class="card-link" href="#">Card link</a>-->
-<!--                                <a class="card-link" href="#">Another link</a>-->
-<!--                            </div>-->
-<!--                        </div>&lt;!&ndash; /.card &ndash;&gt;-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash; /.col-md-6 &ndash;&gt;-->
-<!--                    <div class="col-lg-6">-->
-<!--                        <div class="card">-->
-<!--                            <div class="card-header">-->
-<!--                                <h5 class="m-0">Featured</h5>-->
-<!--                            </div>-->
-<!--                            <div class="card-body">-->
-<!--                                <h6 class="card-title">Special title treatment</h6>-->
-
-<!--                                <p class="card-text">With supporting text below as a natural lead-in to additional-->
-<!--                                    content.</p>-->
-<!--                                <a class="btn btn-primary" href="#">Go somewhere</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-
-<!--                        <div class="card card-primary card-outline">-->
-<!--                            <div class="card-header">-->
-<!--                                <h5 class="m-0">Featured</h5>-->
-<!--                            </div>-->
-<!--                            <div class="card-body">-->
-<!--                                <h6 class="card-title">Special title treatment</h6>-->
-
-<!--                                <p class="card-text">With supporting text below as a natural lead-in to additional-->
-<!--                                    content.</p>-->
-<!--                                <a class="btn btn-primary" href="#">Go somewhere</a>-->
-<!--                            </div>-->
-                        </div>
-                    </div>
-                    <!-- /.col-md-6 -->
-                </div>
-                <!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
-        <!-- /.content -->
-    </div>
     <!-- /.content-wrapper -->
 
     <th:block th:replace="admin/template :: rightbar"/>
