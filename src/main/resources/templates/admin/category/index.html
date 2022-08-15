@@ -16,20 +16,33 @@
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Categories</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active">Categories</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
 
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Categories</h3>
+                                <h3 class="card-title" th:text="'Categories [count: ' + ${categoriesPage.totalElements}+${#strings.isEmpty(search) ? '' : ', search: ' + search} + ']'">Categories</h3>
 
                                 <div class="card-tools">
+                                    <form>
                                     <div class="input-group input-group-sm" style="width: 150px;">
-                                        <label>
-                                            <input class="form-control float-right" name="table_search"
+
+                                            <input th:value="${search}" class="form-control float-right" name="s"
                                                    placeholder="Search"
                                                    type="text">
-                                        </label>
 
                                         <div class="input-group-append">
                                             <button class="btn btn-default" type="submit">
@@ -37,6 +50,7 @@
                                             </button>
                                         </div>
                                     </div>
+                                    </form>
                                 </div>
                             </div>
                             <!-- /.card-header -->
