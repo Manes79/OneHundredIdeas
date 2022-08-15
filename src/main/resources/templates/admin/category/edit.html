@@ -34,9 +34,9 @@
                                     <div class="card-tools">
                                         <div class="input-group input-group-sm" style="width: 130px;">
 
-                                                <input class="form-control float-right" name="table_search"
-                                                       placeholder="Search"
-                                                       type="text">
+                                            <input class="form-control float-right" name="table_search"
+                                                   placeholder="Search"
+                                                   type="text">
 
                                             <div class="input-group-append">
                                                 <button class="btn btn-default" type="submit">
@@ -56,9 +56,11 @@
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="categoryName">Name</label>
-                                            <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span>
-                                            <input th:field="*{name}" type="text" class="form-control" id="categoryName" placeholder="Category name">
-                                            <input th:field="*{id}" type="hidden" />
+                                            <span class="error" th:errors="*{name}"
+                                                  th:if="${#fields.hasErrors('name')}">Name Error</span>
+                                            <input class="form-control" id="categoryName" placeholder="Category name" th:field="*{name}"
+                                                   type="text">
+                                            <input th:field="*{id}" type="hidden"/>
                                         </div>
                                     </div>
                                     <!-- /.card-body -->

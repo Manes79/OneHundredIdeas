@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.manes.onehundredideas.category.domain.model.Category;
 import pl.manes.onehundredideas.category.domain.repository.CategoryRepository;
 
-import java.util.List;
 import java.util.UUID;
 
 @Service

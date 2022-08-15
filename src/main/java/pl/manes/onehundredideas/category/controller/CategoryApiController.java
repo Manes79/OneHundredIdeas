@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import pl.manes.onehundredideas.category.domain.model.Category;
 import pl.manes.onehundredideas.category.service.CategoryService;
 
-import java.util.List;
 import java.util.UUID;
 
 @RestController

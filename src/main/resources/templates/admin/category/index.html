@@ -30,84 +30,87 @@
             </div><!-- /.container-fluid -->
         </div>
 
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title" th:text="'Categories [count: ' + ${categoriesPage.totalElements}+${#strings.isEmpty(search) ? '' : ', search: ' + search} + ']'">Categories</h3>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"
+                            th:text="'Categories [count: ' + ${categoriesPage.totalElements}+${#strings.isEmpty(search) ? '' : ', search: ' + search} + ']'">
+                            Categories</h3>
 
-                                <div class="card-tools">
-                                    <form>
-                                    <div class="input-group input-group-sm" style="width: 150px;">
+                        <div class="card-tools">
+                            <form>
+                                <div class="input-group input-group-sm" style="width: 150px;">
 
-                                            <input th:value="${search}" class="form-control float-right" name="s"
-                                                   placeholder="Search"
-                                                   type="text">
+                                    <input class="form-control float-right" name="s" placeholder="Search"
+                                           th:value="${search}"
+                                           type="text">
 
-                                        <div class="input-group-append">
-                                            <button class="btn btn-default" type="submit">
-                                                <i class="fas fa-search"></i>
-                                            </button>
-                                        </div>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-default" type="submit">
+                                            <i class="fas fa-search"></i>
+                                        </button>
                                     </div>
-                                    </form>
                                 </div>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body table-responsive p-0">
-                                <table class="table table-hover text-nowrap">
-                                    <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th><a  th:class="'sort-' +${reverseSort}"
-                                                th:href="@{'/admin/categories'(s=${search}, field = 'name', direction = ${reverseSort})}">Name</a></th>
-                                        <th></th>
-
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr th:each="category, iterator : ${categoriesPage.content}">
-                                        <td th:text="${iterator.index} + 1"></td>
-                                        <td th:text="${category.name}"></td>
-                                        <td>
-                                            <a class="btn btn-primary btn-sm"
-                                               th:href="@{'/categories/'+${category.id}}">
-                                                <i class="fas fa-folder"></i>View
-                                            </a>
-                                            <a class="btn btn-info btn-sm"
-                                               th:href="@{'/admin/categories/'+${category.id}}">
-                                                <i class="fas fa-pencil-alt"></i>Edit
-                                            </a>
-                                            <a class="btn btn-danger btn-sm"
-                                               th:href="@{'/admin/categories/'+${category.id}+'/delete'}">
-                                                <i class="fas fa-trash"></i>Delete
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-
-                                <div class="card-footer clearfix">
-                                    <ul class="pagination pagination-sm m-0 float-right"
-                                        th:if="${categoriesPage.totalPages > 0}">
-                                        <li th:each="pageNumber : ${pageNumbers}" class="page-item">
-                                            <a class="page-link"
-                                               th:href="@{'/admin/categories'(size=${categoriesPage.size}, page=${pageNumber}-1)}"
-                                               th:text="${pageNumber}">
-                                            </a>
-                                        </li>
-                                    </ul>
-
-                            </div>
-                            <!-- /.card-body -->
+                            </form>
                         </div>
-                        <!-- /.card -->
                     </div>
-                </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover text-nowrap">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th><a th:class="'sort-' +${reverseSort}"
+                                       th:href="@{'/admin/categories'(s=${search}, field = 'name', direction = ${reverseSort})}">Name</a>
+                                </th>
+                                <th></th>
 
-            </div><!-- /.container-fluid -->
-        </div>
-        <!-- /.content-header -->
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="category, iterator : ${categoriesPage.content}">
+                                <td th:text="${iterator.index} + 1"></td>
+                                <td th:text="${category.name}"></td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm"
+                                       th:href="@{'/categories/'+${category.id}}">
+                                        <i class="fas fa-folder"></i>View
+                                    </a>
+                                    <a class="btn btn-info btn-sm"
+                                       th:href="@{'/admin/categories/'+${category.id}}">
+                                        <i class="fas fa-pencil-alt"></i>Edit
+                                    </a>
+                                    <a class="btn btn-danger btn-sm"
+                                       th:href="@{'/admin/categories/'+${category.id}+'/delete'}">
+                                        <i class="fas fa-trash"></i>Delete
+                                    </a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="card-footer clearfix">
+                            <ul class="pagination pagination-sm m-0 float-right"
+                                th:if="${categoriesPage.totalPages > 0}">
+                                <li class="page-item" th:each="pageNumber : ${pageNumbers}">
+                                    <a class="page-link"
+                                       th:href="@{'/admin/categories'(size=${categoriesPage.size}, page=${pageNumber}-1)}"
+                                       th:text="${pageNumber}">
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 
     <!-- /.content-wrapper -->
 
