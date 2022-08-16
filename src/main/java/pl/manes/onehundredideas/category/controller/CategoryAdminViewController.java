@@ -11,14 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pl.manes.onehundredideas.category.domain.model.Category;
 import pl.manes.onehundredideas.category.service.CategoryService;
-import pl.manes.onehundredideas.common.controller.ControllerUtils;
 import pl.manes.onehundredideas.common.dto.Message;
 
 import javax.validation.Valid;
-import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 import static pl.manes.onehundredideas.common.controller.ControllerUtils.paging;
 

@@ -1,7 +1,6 @@
 package pl.manes.onehundredideas.question.service;
 
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -57,5 +56,10 @@ public class QuestionService {
     @Transactional(readOnly = true)
     public Page<Question> findHot(Pageable pageable) {
         return questionRepository.findHot(pageable);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<Question> findUnanswered(Pageable pageable) {
+        return questionRepository.findUnanswered(pageable);
     }
 }

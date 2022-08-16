@@ -58,7 +58,8 @@
                                             <label for="categoryName">Name</label>
                                             <span class="error" th:errors="*{name}"
                                                   th:if="${#fields.hasErrors('name')}">Name Error</span>
-                                            <input class="form-control" id="categoryName" placeholder="Category name" th:field="*{name}"
+                                            <input class="form-control" id="categoryName" placeholder="Category name"
+                                                   th:field="*{name}"
                                                    type="text">
                                             <input th:field="*{id}" type="hidden"/>
                                         </div>
