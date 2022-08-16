@@ -31,3 +31,9 @@ values (gen_random_uuid(), 'Gdzie najlepiej spędzić wakacje w Polsce?',
        (gen_random_uuid(), 'Gdzie najlepiej spędzić wakacje w Europie?',
         (select id from categories where name = 'Turystyka'));
 
+insert into questions (id, name, category_id)
+values (gen_random_uuid(), 'Dlaczego warto uczyć się programowwania?',
+        (select id from categories where name = 'Edukacja')),
+       (gen_random_uuid(), 'Dlaczego Java jest dobrym jezykiem na start?',
+        (select id from categories where name = 'Edukacja'));
+
