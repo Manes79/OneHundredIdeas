@@ -1,11 +1,13 @@
 package pl.manes.onehundredideas.common.controller;
 
 import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
 
 public abstract class ControllerUtils {
 

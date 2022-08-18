@@ -69,6 +69,7 @@ public class QuestionViewController extends OneHundredIdeasCommonViewController 
         Page<Question> questionsPage = questionsService.findHot(pageRequest);
 
         model.addAttribute("questionsPage", questionsPage);
+
         paging(model, questionsPage);
         addGlobalAttributes(model);
 

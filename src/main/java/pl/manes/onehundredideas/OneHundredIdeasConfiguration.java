@@ -6,7 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConfigurationProperties(prefix = "ideas")
+@ConfigurationProperties(prefix = "onehundredideas")
 @Data
 public class OneHundredIdeasConfiguration {
 

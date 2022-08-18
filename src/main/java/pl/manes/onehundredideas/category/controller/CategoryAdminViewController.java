@@ -50,6 +50,7 @@ public class CategoryAdminViewController {
         model.addAttribute("categoriesPage", categoriesPage);
         model.addAttribute("search", search);
         model.addAttribute("reverseSort", reverseSort);
+
         paging(model, categoriesPage);
 
         return "/admin/category/index";
@@ -98,6 +99,4 @@ public class CategoryAdminViewController {
 
         return "redirect:/admin/categories";
     }
-
-
 }
