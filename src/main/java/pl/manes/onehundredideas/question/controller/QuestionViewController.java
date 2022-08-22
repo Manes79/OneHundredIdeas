@@ -24,6 +24,7 @@ public class QuestionViewController extends OneHundredIdeasCommonViewController 
 
     private final QuestionService questionsService;
     private final AnswerService answerService;
+
     private final CategoryService categoryService;
     private final OneHundredIdeasConfiguration oneHundredIdeasConfiguration;
 
