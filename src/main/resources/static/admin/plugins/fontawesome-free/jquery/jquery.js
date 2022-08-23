@@ -1385,7 +1385,7 @@
 
                         // Support: Firefox <=3.6 - 5 only
                         // Old Firefox doesn't throw on a badly-escaped identifier.
-                        el.querySelectorAll("\\\f");
+                        el.querySelectorAll("\\f");
                         rbuggyQSA.push("[\\r\\n\\f]");
                     });
 
@@ -1395,7 +1395,7 @@
 
                         // Support: Windows 8 Native Apps
                         // The type and name attributes are restricted during .innerHTML assignment
-                        var input = document.createElement("input");
+                        const input = document.createElement("input");
                         input.setAttribute("type", "hidden");
                         el.appendChild(input).setAttribute("name", "D");
 

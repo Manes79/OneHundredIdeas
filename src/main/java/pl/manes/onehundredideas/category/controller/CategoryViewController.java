@@ -1,6 +1,7 @@
 package pl.manes.onehundredideas.category.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +25,7 @@ public class CategoryViewController extends OneHundredIdeasCommonViewController 
     private final QuestionService questionService;
 
     @GetMapping("{id}")
-    public String singleView(@PathVariable UUID id, Model model) {
+    public String singleView(@PathVariable UUID id, @NotNull Model model) {
         Category category = categoryService.getCategory(id);
         List<Question> questions = questionService.findAllByCategoryId(id);
 

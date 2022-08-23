@@ -1,5 +1,6 @@
 package pl.manes.onehundredideas.question.service;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -30,14 +31,14 @@ public class QuestionService {
     }
 
     @Transactional
-    public Question createQuestion(Question questionRequest) {
+    public Question createQuestion(@NotNull Question questionRequest) {
         Question question = new Question();
         question.setName(questionRequest.getName());
         return questionRepository.save(question);
     }
 
     @Transactional
-    public Question updateQuestion(UUID id, Question questionRequest) {
+    public Question updateQuestion(UUID id, @NotNull Question questionRequest) {
         Question question = questionRepository.getReferenceById(id);
         question.setName(questionRequest.getName());
         return questionRepository.save(question);

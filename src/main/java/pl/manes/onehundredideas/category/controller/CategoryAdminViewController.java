@@ -1,5 +1,6 @@
 package pl.manes.onehundredideas.category.controller;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -57,7 +58,7 @@ public class CategoryAdminViewController {
     }
 
     @GetMapping("{id}")
-    public String editView(Model model, @PathVariable UUID id) {
+    public String editView(@NotNull Model model, @PathVariable UUID id) {
         model.addAttribute("category", categoryService.getCategory(id));
 
         return "/admin/category/edit";
@@ -67,7 +68,7 @@ public class CategoryAdminViewController {
     public String edit(
             @PathVariable UUID id,
             @Valid @ModelAttribute("category") Category category,
-            BindingResult bindingResult,
+            @NotNull BindingResult bindingResult,
             RedirectAttributes redirectAttributes,
             Model model) {
 
@@ -93,7 +94,7 @@ public class CategoryAdminViewController {
     }
 
     @GetMapping("{id}/delete")
-    public String deleteView(@PathVariable UUID id, RedirectAttributes redirectAttributes) {
+    public String deleteView(@PathVariable UUID id, @NotNull RedirectAttributes redirectAttributes) {
         categoryService.deleteCategory(id);
         redirectAttributes.addFlashAttribute("message", Message.info("Category delete"));
 

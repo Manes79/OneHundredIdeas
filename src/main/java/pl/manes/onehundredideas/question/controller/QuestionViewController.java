@@ -1,13 +1,13 @@
 package pl.manes.onehundredideas.question.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.manes.onehundredideas.OneHundredIdeasConfiguration;
-import pl.manes.onehundredideas.category.service.CategoryService;
 import pl.manes.onehundredideas.common.controller.OneHundredIdeasCommonViewController;
 import pl.manes.onehundredideas.question.domain.model.Question;
 import pl.manes.onehundredideas.question.service.AnswerService;
@@ -25,11 +25,10 @@ public class QuestionViewController extends OneHundredIdeasCommonViewController 
     private final QuestionService questionsService;
     private final AnswerService answerService;
 
-    private final CategoryService categoryService;
     private final OneHundredIdeasConfiguration oneHundredIdeasConfiguration;
 
     @GetMapping
-    public String indexView(Model model) {
+    public String indexView(@NotNull Model model) {
         model.addAttribute("questions", questionsService.getQuestions());
         addGlobalAttributes(model);
 
@@ -37,7 +36,7 @@ public class QuestionViewController extends OneHundredIdeasCommonViewController 
     }
 
     @GetMapping("{id}")
-    public String singleView(Model model, @PathVariable UUID id) {
+    public String singleView(@NotNull Model model, @PathVariable UUID id) {
         model.addAttribute("question", questionsService.getQuestion(id));
         model.addAttribute("answers", answerService.getAnswers(id));
         addGlobalAttributes(model);
@@ -46,7 +45,7 @@ public class QuestionViewController extends OneHundredIdeasCommonViewController 
     }
 
     @GetMapping("add")
-    public String addView(Model model) {
+    public String addView(@NotNull Model model) {
         model.addAttribute("question", new Question());
 
         return "question/add";
@@ -62,7 +61,7 @@ public class QuestionViewController extends OneHundredIdeasCommonViewController 
     @GetMapping("hot")
     public String hotView(
             @RequestParam(name = "page", defaultValue = "1") int page,
-            Model model
+            @NotNull Model model
     ) {
 
         PageRequest pageRequest = PageRequest.of(page - 1, oneHundredIdeasConfiguration.getPagingPageSize());
@@ -80,7 +79,7 @@ public class QuestionViewController extends OneHundredIdeasCommonViewController 
     @GetMapping("unanswered")
     public String hotUnanswered(
             @RequestParam(name = "page", defaultValue = "1") int page,
-            Model model
+            @NotNull Model model
     ) {
 
         PageRequest pageRequest = PageRequest.of(page - 1, oneHundredIdeasConfiguration.getPagingPageSize());

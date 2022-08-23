@@ -1,5 +1,6 @@
 package pl.manes.onehundredideas.question.service;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.manes.onehundredideas.question.domain.model.Answer;
@@ -33,7 +34,7 @@ public class AnswerService {
     }
 
     @Transactional
-    public Answer createAnswer(UUID questionId, Answer answerRequest) {
+    public Answer createAnswer(UUID questionId, @NotNull Answer answerRequest) {
         Answer answer = new Answer();
         answer.setName(answerRequest.getName());
         Question question = questionRepository.getReferenceById(questionId);
@@ -44,7 +45,7 @@ public class AnswerService {
     }
 
     @Transactional
-    public Answer updateAnswer(UUID answerId, Answer answerRequest) {
+    public Answer updateAnswer(UUID answerId, @NotNull Answer answerRequest) {
         Answer answer = answerRepository.getReferenceById(answerId);
         answer.setName(answerRequest.getName());
         return answerRepository.save(answer);

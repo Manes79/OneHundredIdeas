@@ -1,5 +1,6 @@
 package pl.manes.onehundredideas.category.service;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -38,14 +39,14 @@ public class CategoryService {
     }
 
     @Transactional
-    public Category createCategory(Category categoryRequest) {
+    public Category createCategory(@NotNull Category categoryRequest) {
         Category category = new Category();
         category.setName(categoryRequest.getName());
         return categoryRepository.save(category);
     }
 
     @Transactional
-    public Category updateCategory(UUID id, Category categoryRequest) {
+    public Category updateCategory(UUID id, @NotNull Category categoryRequest) {
         Category category = categoryRepository.getReferenceById(id);
         category.setName(categoryRequest.getName());
         return categoryRepository.save(category);

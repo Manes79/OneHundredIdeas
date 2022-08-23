@@ -1,5 +1,6 @@
 package pl.manes.onehundredideas.common.configuration;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
@@ -28,7 +29,7 @@ public class InternationalizationConfig implements WebMvcConfigurer {
     }
 
     @Override
-    public void addInterceptors(InterceptorRegistry interceptorRegistry) {
+    public void addInterceptors(@NotNull InterceptorRegistry interceptorRegistry) {
         interceptorRegistry.addInterceptor(localeChangeInterceptor());
     }
 }

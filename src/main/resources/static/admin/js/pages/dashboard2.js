@@ -13,9 +13,9 @@ $(function () {
     //-----------------------
 
     // Get context with jQuery - using jQuery's .get() method.
-    var salesChartCanvas = $('#salesChart').get(0).getContext('2d')
+    const salesChartCanvas = $('#salesChart').get(0).getContext('2d');
 
-    var salesChartData = {
+    const salesChartData = {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [
             {
@@ -41,9 +41,9 @@ $(function () {
                 data: [65, 59, 80, 81, 56, 55, 40]
             }
         ]
-    }
+    };
 
-    var salesChartOptions = {
+    const salesChartOptions = {
         maintainAspectRatio: false,
         responsive: true,
         legend: {
@@ -61,16 +61,16 @@ $(function () {
                 }
             }]
         }
-    }
+    };
 
     // This will get the first returned node in the jQuery collection.
     // eslint-disable-next-line no-unused-vars
-    var salesChart = new Chart(salesChartCanvas, {
+    const salesChart = new Chart(salesChartCanvas, {
             type: 'line',
             data: salesChartData,
             options: salesChartOptions
         }
-    )
+    );
 
     //---------------------------
     // - END MONTHLY SALES CHART -
@@ -80,8 +80,8 @@ $(function () {
     // - PIE CHART -
     //-------------
     // Get context with jQuery - using jQuery's .get() method.
-    var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
-    var pieData = {
+    const pieChartCanvas = $('#pieChart').get(0).getContext('2d');
+    const pieData = {
         labels: [
             'Chrome',
             'IE',
@@ -96,20 +96,20 @@ $(function () {
                 backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de']
             }
         ]
-    }
-    var pieOptions = {
+    };
+    const pieOptions = {
         legend: {
             display: false
         }
-    }
+    };
     // Create pie or douhnut chart
     // You can switch between pie and douhnut using the method below.
     // eslint-disable-next-line no-unused-vars
-    var pieChart = new Chart(pieChartCanvas, {
+    const pieChart = new Chart(pieChartCanvas, {
         type: 'doughnut',
         data: pieData,
         options: pieOptions
-    })
+    });
 
     //-----------------
     // - END PIE CHART -

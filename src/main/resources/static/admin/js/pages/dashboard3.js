@@ -3,17 +3,17 @@
 $(function () {
     'use strict'
 
-    var ticksStyle = {
+    const ticksStyle = {
         fontColor: '#495057',
         fontStyle: 'bold'
-    }
+    };
 
-    var mode = 'index'
-    var intersect = true
+    const mode = 'index';
+    const intersect = true;
 
-    var $salesChart = $('#sales-chart')
+    const $salesChart = $('#sales-chart');
     // eslint-disable-next-line no-unused-vars
-    var salesChart = new Chart($salesChart, {
+    const salesChart = new Chart($salesChart, {
         type: 'bar',
         data: {
             labels: ['JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
@@ -75,11 +75,11 @@ $(function () {
                 }]
             }
         }
-    })
+    });
 
-    var $visitorsChart = $('#visitors-chart')
+    const $visitorsChart = $('#visitors-chart');
     // eslint-disable-next-line no-unused-vars
-    var visitorsChart = new Chart($visitorsChart, {
+    const visitorsChart = new Chart($visitorsChart, {
         data: {
             labels: ['18th', '20th', '22nd', '24th', '26th', '28th', '30th'],
             datasets: [{
@@ -141,7 +141,7 @@ $(function () {
                 }]
             }
         }
-    })
+    });
 })
 
 // lgtm [js/unused-local-variable]
