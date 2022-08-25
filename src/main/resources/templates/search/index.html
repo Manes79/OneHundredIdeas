@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="template :: head(title = 'One Hundred Ideas')"/>
+<head th:replace="template :: head(title = 'One Hundred Ideas - wyszukiwarka')"/>
 <body>
 <th:block th:replace="template :: header"/>
 
@@ -9,7 +9,14 @@
     <div class="row g-5">
         <div class="col-md-8">
 
-            <article class="blog-post">
+            <form>
+                <input name="query" th:value="${query}" type="text"/>
+                <button class="btn btn-primary" type="submit">Szukaj</button>
+            </form>
+
+            <p th:if="${query != null and questionsPage.getNumberOfElements() == 0}">Brak wyników</p>
+
+            <article class="blog-post" th:if="${questionsPage != null and questionsPage.totalElements > 0}">
                 <table class="table">
                     <thead>
                     <tr>
@@ -20,7 +27,7 @@
                     </thead>
                     <tbody>
 
-                    <tr th:each="question : ${questionsPage}">
+                    <tr th:each="question : ${questionsPage.content}">
                         <td th:text="${question.name}">Question</td>
                         <td>x</td>
                         <td>x</td>
@@ -29,11 +36,12 @@
                 </table>
             </article>
 
-            <nav aria-label="Pagination" class="blog-pagination">
-                <a class="btn btn-outline-primary"
-                   th:class="${pageNumber==questionsPage.number + 1} ? 'btn btn-outline-primary disabled' : 'btn btn-outline-primary'"
+            <nav aria-label="Pagination" class="blog-pagination"
+                 th:if="${questionsPage != null and questionsPage.totalPages > 0}">
+
+                <a class="btn btn-outline-primary" th:class="${pageNumber==questionsPage.number + 1} ? 'btn btn-outline-primary disabled' : 'btn btn-outline-primary'"
                    th:each="pageNumber : ${pageNumbers}"
-                   th:href="@{''(size=${questionsPage.size}, page=${pageNumber})}"
+                   th:href="@{''(size=${questionsPage.size}, page=${pageNumber}, query=${query})}"
                    th:text="${pageNumber}"></a>
             </nav>
 
