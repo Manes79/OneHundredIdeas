@@ -1,15 +1,20 @@
 package pl.manes.onehundredideas.question.domain.model;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import pl.manes.onehundredideas.category.domain.model.Category;
 
 import javax.persistence.*;
-import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 
 @Entity
 @Table(name = "questions")
+@Getter
+@Setter
+@ToString
 public class Question {
 
     @Id
@@ -20,6 +25,7 @@ public class Question {
     private Category category;
 
     @OneToMany(mappedBy = "question")
+    @ToString.Exclude
     private Set<Answer> answers;
 
     public Question() {
@@ -31,7 +37,7 @@ public class Question {
         this.name = name;
     }
 
-    public void addAnswer(Answer answer) {
+    public Question addAnswer(Answer answer) {
         if (answers == null) {
             answers = new LinkedHashSet<>();
         }
@@ -39,37 +45,6 @@ public class Question {
         answer.setQuestion(this);
         answers.add(answer);
 
-    }
-
-    public Set<Answer> getAnswers() {
-        return Collections.unmodifiableSet(answers);
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "Question{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return this;
     }
 }

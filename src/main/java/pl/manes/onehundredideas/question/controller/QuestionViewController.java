@@ -24,7 +24,6 @@ public class QuestionViewController extends OneHundredIdeasCommonViewController 
 
     private final QuestionService questionsService;
     private final AnswerService answerService;
-
     private final OneHundredIdeasConfiguration oneHundredIdeasConfiguration;
 
     @GetMapping
@@ -69,7 +68,6 @@ public class QuestionViewController extends OneHundredIdeasCommonViewController 
         Page<Question> questionsPage = questionsService.findHot(pageRequest);
 
         model.addAttribute("questionsPage", questionsPage);
-
         paging(model, questionsPage);
         addGlobalAttributes(model);
 
