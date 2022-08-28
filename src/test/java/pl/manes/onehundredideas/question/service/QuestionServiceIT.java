@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
+import pl.manes.onehundredideas.category.domain.model.Category;
 import pl.manes.onehundredideas.category.domain.repository.CategoryRepository;
 import pl.manes.onehundredideas.question.domain.model.Question;
 import pl.manes.onehundredideas.question.domain.repository.AnswerRepository;
@@ -54,7 +55,7 @@ class QuestionServiceIT {
     }
 
     @Test
-    void shouldSingleGetQuestion() {
+    void shouldGetSingleQuestion() {
         // given
         Question question = new Question("Question2");
 
@@ -85,15 +86,36 @@ class QuestionServiceIT {
     }
 
     @Test
-    void updateQuestion() {
+    void shouldUpdateQuestion() {
+        // given
+        Question question = new Question("Question");
+        question = questionService.createQuestion(question);
+
+        question.setName("updated");
+
+        // when
+        Question result = questionService.getQuestion(question.getId());
+
+        // then
+        assertThat(result.getId()).isEqualTo(question.getId());
     }
 
     @Test
-    void deleteQuestion() {
+    void shouldDeleteQuestion() {
+        // given
+        Question question = new Question("Question");
+
+        question.setName("deleted");
+
+        // when
+        Question result = questionService.getQuestion(question.getId());
+
+        // then
+        assertThat(result.getId()).isEqualTo(question.getId());
     }
 
     @Test
-    void findAllByCategoryId() {
+    void shouldFindAllQuestionsByCategoryId() {
     }
 
     @Test

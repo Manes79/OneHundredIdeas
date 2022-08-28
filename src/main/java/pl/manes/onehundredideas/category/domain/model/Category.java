@@ -1,5 +1,9 @@
 package pl.manes.onehundredideas.category.domain.model;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -9,6 +13,9 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "categories")
+@Getter
+@Setter
+@ToString
 public class Category {
 
     @Id
@@ -25,29 +32,5 @@ public class Category {
     public Category(String name) {
         this.id = UUID.randomUUID();
         this.name = name;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "Category{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
     }
 }

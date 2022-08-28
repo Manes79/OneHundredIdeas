@@ -1,5 +1,6 @@
 package pl.manes.onehundredideas.category.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -11,14 +12,10 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("api/v1/categories")
+@RequiredArgsConstructor
 public class CategoryApiController {
 
     private final CategoryService categoryService;
-
-    public CategoryApiController(CategoryService categoryService) {
-        this.categoryService = categoryService;
-    }
-
     @GetMapping()
     Page<Category> getCategories(Pageable pageable) {
         return categoryService.getCategories(pageable);
