@@ -11,21 +11,23 @@
 
             <article class="blog-post">
                 <table class="table">
+
                     <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th>Question Name</th>
+                        <th>Answer</th>
+                        <th>Edit Answer</th>
                     </tr>
                     </thead>
-                    <tbody>
 
+                    <tbody>
                     <tr th:each="question : ${questionsPage}">
                         <td th:text="${question.name}">Question</td>
-                        <td>x</td>
-                        <td>x</td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     </tbody>
+
                 </table>
             </article>
 

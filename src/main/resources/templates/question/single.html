@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="template :: head(title = 'One Hundred Ideas - ' + ${question.name})"/>
+<head th:replace="template :: head(title = 'One Hundred Ideas - ' + ${question.name})"><title></title></head>
 <body>
 <th:block th:replace="template :: header"/>
 
@@ -15,17 +15,19 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th>Treść Pytania</th>
+                        <th>Udziel Odpowiedzi</th>
+                        <th>Usuń odpowiedź</th>
                     </tr>
                     </thead>
                     <tbody>
+
                     <tr th:each="answer : ${answers}">
                         <td th:text="${answer.name}">Answer</td>
                         <td>x</td>
                         <td>x</td>
                     </tr>
+
                     </tbody>
                 </table>
 
