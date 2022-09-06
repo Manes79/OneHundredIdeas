@@ -10,7 +10,9 @@
         <div class="col-md-8">
 
             <form>
-                <input name="query" th:value="${query}" type="text"/>
+                <label>
+                    <input name="query" th:value="${query}" type="text"/>
+                </label>
                 <button class="btn btn-primary" type="submit">Szukaj</button>
             </form>
 
@@ -39,6 +41,8 @@
             <nav aria-label="Pagination" class="blog-pagination"
                  th:if="${questionsPage != null and questionsPage.totalPages > 0}">
 
+                <!--/*@thymesVar id="pageNumber" type="aj"*/-->
+                <!--/*@thymesVar id="pageNumbers" type="aj"*/-->
                 <a class="btn btn-outline-primary" th:class="${pageNumber==questionsPage.number + 1} ? 'btn btn-outline-primary disabled' : 'btn btn-outline-primary'"
                    th:each="pageNumber : ${pageNumbers}"
                    th:href="@{''(size=${questionsPage.size}, page=${pageNumber}, query=${query})}"

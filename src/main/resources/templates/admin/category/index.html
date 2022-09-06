@@ -42,9 +42,9 @@
                             <form>
                                 <div class="input-group input-group-sm" style="width: 150px;">
 
-                                    <input class="form-control float-right" name="s" placeholder="Search"
-                                           th:value="${search}"
-                                           type="text">
+                                        <input class="form-control float-right" name="s" placeholder="Search"
+                                               th:value="${search}"
+                                               type="text">
 
                                     <div class="input-group-append">
                                         <button class="btn btn-default" type="submit">
@@ -93,6 +93,7 @@
                         <div class="card-footer clearfix">
                             <ul class="pagination pagination-sm m-0 float-right"
                                 th:if="${categoriesPage.totalPages > 0}">
+                                <!--/*@thymesVar id="pageNumbers" type="aj"*/-->
                                 <li class="page-item" th:each="pageNumber : ${pageNumbers}">
                                     <a class="page-link"
                                        th:href="@{'/admin/categories'(size=${categoriesPage.size}, page=${pageNumber}-1)}"

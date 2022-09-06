@@ -37,7 +37,7 @@ public class Question {
         this.name = name;
     }
 
-    public Question addAnswer(Answer answer) {
+    public void addAnswer(Answer answer) {
         if (answers == null) {
             answers = new LinkedHashSet<>();
         }
@@ -45,6 +45,5 @@ public class Question {
         answer.setQuestion(this);
         answers.add(answer);
 
-        return this;
     }
 }

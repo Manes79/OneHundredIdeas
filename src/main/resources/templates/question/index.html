@@ -32,6 +32,7 @@
             </article>
 
             <nav aria-label="Pagination" class="blog-pagination">
+                <!--/*@thymesVar id="pageNumbers" type="aj"*/-->
                 <a class="btn btn-outline-primary"
                    th:class="${pageNumber==questionsPage.number + 1} ? 'btn btn-outline-primary disabled' : 'btn btn-outline-primary'"
                    th:each="pageNumber : ${pageNumbers}"
