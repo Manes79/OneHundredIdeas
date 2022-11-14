@@ -30,14 +30,16 @@ public class AnswerService {
 
     @Transactional(readOnly = true)
     public Answer getAnswer(UUID id) {
-        return answerRepository.getReferenceById(id);
+        return answerRepository.findById(id)
+                .orElseThrow();
     }
 
     @Transactional
     public Answer createAnswer(UUID questionId, @NotNull Answer answerRequest) {
         Answer answer = new Answer();
         answer.setName(answerRequest.getName());
-        Question question = questionRepository.getReferenceById(questionId);
+        Question question = questionRepository.findById(questionId)
+                        .orElseThrow();
         question.addAnswer(answer);
         answerRepository.save(answer);
         questionRepository.save(question);
@@ -46,7 +48,8 @@ public class AnswerService {
 
     @Transactional
     public Answer updateAnswer(UUID answerId, @NotNull Answer answerRequest) {
-        Answer answer = answerRepository.getReferenceById(answerId);
+        Answer answer = answerRepository.findById(answerId)
+                        .orElseThrow();
         answer.setName(answerRequest.getName());
         return answerRepository.save(answer);
     }

@@ -1,5 +1,6 @@
 package pl.manes.onehundredideas.category.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -18,7 +19,7 @@ import javax.validation.Valid;
 import java.util.UUID;
 
 import static pl.manes.onehundredideas.common.controller.ControllerUtils.paging;
-
+@Slf4j
 @Controller
 @RequestMapping("/admin/categories")
 public class CategoryAdminViewController {
@@ -95,8 +96,16 @@ public class CategoryAdminViewController {
 
     @GetMapping("{id}/delete")
     public String deleteView(@PathVariable UUID id, @NotNull RedirectAttributes redirectAttributes) {
-        categoryService.deleteCategory(id);
-        redirectAttributes.addFlashAttribute("message", Message.info("Category delete"));
+
+        try {
+            categoryService.deleteCategory(id);
+            redirectAttributes.addFlashAttribute("message", Message.info("Category delete"));
+
+        } catch (Exception exception) {
+            log.error("Error on category.delete", exception);
+            redirectAttributes.addFlashAttribute("message", Message.error("Unknown error during removal"));
+            return "redirect:/admin/categories";
+        }
 
         return "redirect:/admin/categories";
     }

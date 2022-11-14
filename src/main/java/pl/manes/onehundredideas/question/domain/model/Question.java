@@ -33,11 +33,12 @@ public class Question {
     }
 
     public Question(String name) {
-        this();
+//        this();
+        this.id = UUID.randomUUID();
         this.name = name;
     }
 
-    public void addAnswer(Answer answer) {
+    public Question addAnswer(Answer answer) {
         if (answers == null) {
             answers = new LinkedHashSet<>();
         }
@@ -45,5 +46,6 @@ public class Question {
         answer.setQuestion(this);
         answers.add(answer);
 
+        return this;
     }
 }

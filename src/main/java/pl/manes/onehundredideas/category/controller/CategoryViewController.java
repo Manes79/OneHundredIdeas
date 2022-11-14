@@ -26,6 +26,7 @@ public class CategoryViewController extends OneHundredIdeasCommonViewController 
 
     @GetMapping("{id}")
     public String singleView(@PathVariable UUID id, @NotNull Model model) {
+
         Category category = categoryService.getCategory(id);
         List<Question> questions = questionService.findAllByCategoryId(id);
 

@@ -54,7 +54,7 @@ public class QuestionViewController extends OneHundredIdeasCommonViewController 
     public String add(Question question) {
         questionsService.createQuestion(question);
 
-        return "redirect/questions";
+        return "redirect:/questions";
     }
 
     @GetMapping("hot")

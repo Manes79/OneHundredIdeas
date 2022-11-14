@@ -16,6 +16,7 @@ import java.util.UUID;
 public class CategoryApiController {
 
     private final CategoryService categoryService;
+
     @GetMapping()
     Page<Category> getCategories(Pageable pageable) {
         return categoryService.getCategories(pageable);
