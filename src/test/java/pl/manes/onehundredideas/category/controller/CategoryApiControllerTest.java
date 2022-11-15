@@ -74,7 +74,7 @@ class CategoryApiControllerTest {
     @Test
     void shouldCreateCategory() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("http://localhost:8080/api/v1/categories")
-                .contentType(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(category))
                 )
                 .andExpect(MockMvcResultMatchers.status().isCreated())

@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import pl.manes.onehundredideas.OneHundredIdeasConfiguration;
+import pl.manes.onehundredideas.common.configuration.OneHundredIdeasConfiguration;
 import pl.manes.onehundredideas.question.domain.model.Question;
 import pl.manes.onehundredideas.question.service.QuestionService;
 
@@ -45,3 +45,4 @@ public class SearchViewController extends OneHundredIdeasCommonViewController {
         return "search/index";
     }
 }
+

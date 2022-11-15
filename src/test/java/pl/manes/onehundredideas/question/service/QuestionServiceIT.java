@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
-import pl.manes.onehundredideas.category.domain.model.Category;
 import pl.manes.onehundredideas.category.domain.repository.CategoryRepository;
 import pl.manes.onehundredideas.question.domain.model.Question;
 import pl.manes.onehundredideas.question.domain.repository.AnswerRepository;

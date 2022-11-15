@@ -39,7 +39,7 @@ public class AnswerService {
         Answer answer = new Answer();
         answer.setName(answerRequest.getName());
         Question question = questionRepository.findById(questionId)
-                        .orElseThrow();
+                .orElseThrow();
         question.addAnswer(answer);
         answerRepository.save(answer);
         questionRepository.save(question);
@@ -49,7 +49,7 @@ public class AnswerService {
     @Transactional
     public Answer updateAnswer(UUID answerId, @NotNull Answer answerRequest) {
         Answer answer = answerRepository.findById(answerId)
-                        .orElseThrow();
+                .orElseThrow();
         answer.setName(answerRequest.getName());
         return answerRepository.save(answer);
     }

@@ -40,7 +40,7 @@ public class QuestionService {
     @Transactional
     public Question updateQuestion(UUID id, @NotNull Question questionRequest) {
         Question question = questionRepository.findById(id)
-                        .orElseThrow();
+                .orElseThrow();
         question.setName(questionRequest.getName());
         return questionRepository.save(question);
     }

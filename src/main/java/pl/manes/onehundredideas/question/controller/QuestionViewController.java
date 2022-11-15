@@ -7,7 +7,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import pl.manes.onehundredideas.OneHundredIdeasConfiguration;
+import pl.manes.onehundredideas.common.configuration.OneHundredIdeasConfiguration;
 import pl.manes.onehundredideas.common.controller.OneHundredIdeasCommonViewController;
 import pl.manes.onehundredideas.question.domain.model.Question;
 import pl.manes.onehundredideas.question.service.AnswerService;

@@ -1,11 +1,12 @@
 # OneHundredIdeas
 
-Ask questions ---> get answers! 
+Ask questions ---> get answers!
 
-this app will help you do that :); 
+this app will help you do that :);
 
-stack ---> 
-- SpringBoot 
-- Thymeleaf 
+stack --->
+
+- SpringBoot
+- Thymeleaf
 - PostgreSQL
 - Lombok

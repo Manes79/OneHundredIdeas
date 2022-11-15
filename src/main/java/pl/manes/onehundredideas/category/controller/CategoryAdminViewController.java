@@ -19,6 +19,7 @@ import javax.validation.Valid;
 import java.util.UUID;
 
 import static pl.manes.onehundredideas.common.controller.ControllerUtils.paging;
+
 @Slf4j
 @Controller
 @RequestMapping("/admin/categories")
