@@ -14,7 +14,7 @@ import java.util.UUID;
 @Repository
 public interface QuestionRepository extends JpaRepository<Question, UUID> {
 
-    List<Question> findAllByCategoryId(UUID id);
+    List<Question> findAllByCategoryId(UUID id, Pageable pageable);
 
     @Query("from Question q order by q.answers.size desc")
     Page<Question> findHot(Pageable pageable);
@@ -30,4 +30,11 @@ public interface QuestionRepository extends JpaRepository<Question, UUID> {
 
     @Query(value = "select new pl.manes.onehundredideas.common.dto.StatisticsDto(count(q), count(a)) from Question q join q.answers a")
     StatisticsDto statistics();
+
+    @Query(value = "select * from questions q order by random() limit :limit", nativeQuery = true)
+    List<Question> findRandomQuestions(int limit);
 }
+
+
+
+

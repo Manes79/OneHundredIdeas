@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.manes.onehundredideas.category.dto.CategoryWithStatisticsDto;
+import pl.manes.onehundredideas.question.dto.QuestionDto;
 import pl.manes.onehundredideas.question.service.QuestionService;
 
 import java.util.List;

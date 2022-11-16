@@ -6,6 +6,7 @@ import lombok.ToString;
 import pl.manes.onehundredideas.category.domain.model.Category;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -24,6 +25,10 @@ public class Question {
     @ManyToOne
     private Category category;
 
+    private LocalDateTime created;
+
+    private LocalDateTime modified;
+
     @OneToMany(mappedBy = "question")
     @ToString.Exclude
     private Set<Answer> answers;
@@ -33,9 +38,19 @@ public class Question {
     }
 
     public Question(String name) {
-//        this();
-        this.id = UUID.randomUUID();
+        this();
         this.name = name;
+    }
+
+    @PrePersist
+    void prePersist() {
+        created = LocalDateTime.now();
+        modified = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    void preUpdate() {
+        modified = LocalDateTime.now();
     }
 
     public Question addAnswer(Answer answer) {
