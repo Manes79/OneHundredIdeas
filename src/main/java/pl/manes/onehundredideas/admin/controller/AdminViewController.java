@@ -1,6 +1,7 @@
 package pl.manes.onehundredideas.admin.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +16,7 @@ public class AdminViewController {
     private final QuestionService questionService;
 
     @GetMapping
-    public String indexView(Model model) {
+    public String indexView(@NotNull Model model) {
 
         model.addAttribute("statistics", questionService.statistics());
         return "admin/index";
